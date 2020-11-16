@@ -98,13 +98,17 @@ public class PlayerMove : MonoBehaviour
         //Change Layer
         gameObject.layer = 11;
 
-        life -= 1;
+        life--;
 
         if (life == 2)
             life1.SetActive(false);
         else if (life == 1)
             life2.SetActive(false);
-        else GameOver();
+        else
+        {
+            life3.SetActive(false);
+            GameOver();
+        }
 
 
 

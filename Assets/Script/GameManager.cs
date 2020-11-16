@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemyObjects;
     public GameObject[] citrusObjects;
     public Transform[] spawnPoints;
-
+   
     public GameObject player;
     public Text scoreText;
     public Image[] lifeImage;
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public float maxSpawnDelay;
     public float curSpawnDelay;
 
- 
+
     void Update()
     {
         curSpawnDelay += Time.deltaTime;
@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
 
         //UI Score Update
         PlayerMove playerLogic = player.GetComponent<PlayerMove>();
-        scoreText.text = string.Format("{0:n0}", playerLogic.point); 
+        scoreText.text = string.Format("{0:n0}", playerLogic.point);
+
     }
     /*
     public void UpdateLifeIcon(int life)
@@ -52,18 +53,27 @@ public class GameManager : MonoBehaviour
     */
     void SpawnEnemy()
     {
-        int ranEnemy = 0;
-        int ranPoint = Random.Range(0, 5);
-        Instantiate(enemyObjects[ranEnemy], spawnPoints[ranPoint].position,
-            spawnPoints[ranPoint].rotation);
+        gameOverSet = GameObject.Find("Canvas").transform.Find("OverSet").gameObject;
+        if (gameOverSet.activeSelf == false)
+        {
+            int ranEnemy = 0;
+            int ranPoint = Random.Range(0, 5);
+            Instantiate(enemyObjects[ranEnemy], spawnPoints[ranPoint].position,
+                spawnPoints[ranPoint].rotation);
         }
+    }
+
 
     void SpawnCitrus()
     {
-        int ranCitrus = 0;
-        int ranPoint = Random.Range(0, 5);
-        Instantiate(citrusObjects[ranCitrus], spawnPoints[ranPoint].position, spawnPoints[ranPoint].rotation);
+        gameOverSet = GameObject.Find("Canvas").transform.Find("OverSet").gameObject;
+        if (gameOverSet.activeSelf == false)
+        {
 
+            int ranCitrus = 0;
+            int ranPoint = Random.Range(0, 5);
+            Instantiate(citrusObjects[ranCitrus], spawnPoints[ranPoint].position, spawnPoints[ranPoint].rotation);
+        }
     }
-    
+
 }
