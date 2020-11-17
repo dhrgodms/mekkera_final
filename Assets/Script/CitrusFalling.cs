@@ -13,7 +13,7 @@ public class CitrusFalling : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
-        rigid.velocity = Vector2.down * speed;
+        rigid.velocity = new Vector2(0, -5);
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
