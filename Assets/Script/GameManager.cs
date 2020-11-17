@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         {
             SpawnEnemy();
             SpawnCitrus();
-            maxSpawnDelay = Random.Range(0.5f, 3f);
+            maxSpawnDelay = Random.Range(0.1f, 1.5f);
             curSpawnDelay = 0;
         }
 
