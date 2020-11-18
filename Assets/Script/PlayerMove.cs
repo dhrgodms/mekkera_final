@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+
 public class PlayerMove : MonoBehaviour
 {
     public bool isTouchLeft;
@@ -137,6 +139,8 @@ public class PlayerMove : MonoBehaviour
     }
     public void GameRetry()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("SampleScene");
     }
+    
+
 }
